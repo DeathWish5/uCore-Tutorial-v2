@@ -12,4 +12,4 @@ int run_next_app();
 #define USER_STACK_SIZE PAGE_SIZE
 #define TRAP_PAGE_SIZE PAGE_SIZE
 
-#endif  // BATCH_H
+#endif // BATCH_H

@@ -14,4 +14,4 @@
 #define MIN(a, b) (a < b ? a : b)
 #define MAX(a, b) (a > b ? a : b)
 
-#endif  // DEF_H
+#endif // DEF_H
