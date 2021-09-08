@@ -129,6 +129,13 @@ void freeproc(struct proc *p)
 	if (p->pagetable)
 		freepagetable(p->pagetable, p->max_page);
 	p->pagetable = 0;
+	for (int i = 3; i < FD_BUFFER_SIZE; i++) {
+		if (p->files[i] != NULL) {
+			if (p->files[i]->type != FD_PIPE)
+				panic("invalid file type");
+			fileclose(p->files[i]);
+		}
+	}
 	p->state = UNUSED;
 }
 
