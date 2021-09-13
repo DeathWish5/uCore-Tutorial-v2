@@ -139,14 +139,6 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
-char *basename(char *path)
-{
-	while (index(path, '/') != 0) {
-		path = index(path, '/') + 1;
-	}
-	return path;
-}
-
 void wsect(uint sec, void *buf)
 {
 	if (lseek(fsfd, sec * BSIZE, 0) != sec * BSIZE) {
