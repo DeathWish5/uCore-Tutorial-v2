@@ -98,13 +98,18 @@ void scheduler()
 {
 	struct proc *p;
 	for (;;) {
+		int has_proc = 0;
 		for (p = pool; p < &pool[NPROC]; p++) {
 			if (p->state == RUNNABLE) {
-				debugf("swtich to proc %d", p->pid);
+				has_proc = 1;
+				debugf("swtich to proc %d", p - pool);
 				p->state = RUNNING;
 				current_proc = p;
 				swtch(&idle.context, &p->context);
 			}
+		}
+		if(has_proc == 0) {
+			panic("all app are over!\n");
 		}
 	}
 }
