@@ -80,4 +80,5 @@ void printf(char *fmt, ...)
 			break;
 		}
 	}
+	va_end(ap);
 }
